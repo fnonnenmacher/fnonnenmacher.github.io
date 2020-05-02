@@ -61,7 +61,7 @@ figcaption {
 
 header {
 	// background-size: cover;
-	padding: 120px 0;
+	padding: 120px 0 40px 0;
 	color: #fff;
 	overflow: hidden;
 	h2 {
@@ -90,6 +90,25 @@ header {
 					color: $gray;
 				}
 			}
+		}
+	}
+}
+
+footer{
+	padding: 5px 0 5px 0;
+	margin: 10px 0 0 0;
+	small {
+		font-style: italic;
+		font-size: 70%;
+		color: #999;
+		margin: 0;
+		text-align: right;
+	}
+	a {
+		text-decoration: underline;
+		transition: none;
+		&:hover {
+			border-bottom: 0;
 		}
 	}
 }
@@ -179,8 +198,9 @@ header {
 	list-style-type: none;
 	padding: 0;
 	li {
+		min-width: 120px;
 		float: left;
-		padding: 10px 20px;
+		padding: 3px 15px;
 		background-color: $lightGray;
 		color: #000;
 		margin: 5px;
@@ -224,15 +244,18 @@ header {
 }
 
 .navbar {
-	position: absolute;
-	top: 0;
-	right: 5vw;
+	position: relative;
+	float: right;
+	margin-top: 10px;
+	//top: 0;
+	//right: 5vw;
 	a {
 		color: inherit;
 	}
 	ul {
 		list-style-type: none;
 		li {
+			display: inline;
 			// background-color: #ff9f1c;
 			border: 1px solid #fff;
 			float: left;
@@ -240,7 +263,7 @@ header {
 			&:not(:first-child){
 				border-left: 0;
 			}
-			padding: 10px 25px;
+			padding: 5px 15px;
 			// border-radius: 4px;
 			@include fluidType(15px, 17px);
 			transition: background-color .3s ease-in;
