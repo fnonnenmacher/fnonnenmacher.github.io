@@ -1,0 +1,97 @@
+<div class="technology-container">
+    <div class="technology-box">
+        <input id="java" type="image" alt="Java" onClick="toggleText(this.id)"
+               value="While working at Bosch Software Innovations.."
+               src="/assets/images/technologies/java.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="groovy" type="image" alt="Groovy" onClick="toggleText(this.id)"
+               value="Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... "
+        src="/assets/images/technologies/groovy.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="scala" type="image" alt="Scala" onClick="toggleText(this.id)"
+               value="Context within I have used Scala..."
+               src="/assets/images/technologies/scala.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="kotlin" type="image" alt="Kotlin" onClick="toggleText(this.id)"
+               value="Context within I have used Kotlin..."
+               src="/assets/images/technologies/kotlin.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="spring-boot" type="image" alt="Spring Boot" onClick="toggleText(this.id)"
+               value="Context within I have used Spring Boot..."
+               src="/assets/images/technologies/spring-boot.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="cloudfoundry" type="image" alt="Cloudfoundry" onClick="toggleText(this.id)"
+               value="Context within I have used Cloudfoundry..."
+               src="/assets/images/technologies/cloudfoundry.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="rabbitmq" type="image" alt="RabbitMQ" onClick="toggleText(this.id)"
+               value="Context within I have used RabbitMQ..."
+               src="/assets/images/technologies/rabbitmq.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="mongodb" type="image" alt="MongoDB" onClick="toggleText(this.id)"
+               value="Context within I have used MongoDB..."
+               src="/assets/images/technologies/mongodb.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="junit" type="image" alt="JUnit" onClick="toggleText(this.id)"
+               value="Context within I have used JUnit..."
+               src="/assets/images/technologies/junit.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="gradle" type="image" alt="Gradle" onClick="toggleText(this.id)"
+               value="Context within I have used Gradle..."
+               src="/assets/images/technologies/gradle.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="jenkins" type="image" alt="Jenkins" onClick="toggleText(this.id)"
+               value="Context within I have used Jenkins..."
+               src="/assets/images/technologies/jenkins.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="docker" type="image" alt="Docker" onClick="toggleText(this.id)"
+               value="Context within I have used Docker..."
+               src="/assets/images/technologies/docker.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="spark" type="image" alt="Spark" onClick="toggleText(this.id)"
+               value="Context within I have used Spark..."
+               src="/assets/images/technologies/spark.png"/>
+    </div>
+    <div class="technology-box">
+        <input id="micronaut" type="image" alt="Spark" onClick="toggleText(this.id)"
+               value="Context within I have used Micronaut..."
+               src="/assets/images/technologies/micronaut.png"/>
+    </div>
+</div>
+<div class="technology-text">
+    <p id="technology-text-field">Click on the technologies above to see the context in which I have used them.</p>
+</div>
+<div class="technology-trademarks">
+    <p>Java™ and the associated logo are registered trademarks of Oracle and/or its affiliates.
+        Groovy™, Apache Spark™, Spark™ and the associated logos are either registered trademarks or trademarks of The Apache Software Foundation in the
+        United States and other countries. Kotlin™ and the associated logos are registered trademarks of the Kotlin Foundation.
+        Spring, Spring Boot, RABBITMQ® and the associated logos are trademarks of Pivotal Software, Inc. in the U.S. and other countries.
+        CLOUD FOUNDRY and the associated logo are trademarks of the CloudFoundry.org Foundation in the United States and other countries.
+        MongoDB® and the associated logo are trademarks of MongoDB, Inc. in the United States and other countries.
+        Gradle and the Gradlephant logo are registered trademark of Gradle, Inc. and its subsidiaries in the United States and/or other countries.
+        Jenkins® is a registered trademark of Software in the Public Interest, Inc.
+        Docker™ and the Docker logo are trademarks or registered trademarks of Docker, Inc. in the United States and/or other countries. Docker, Inc. and other parties may also have trademark rights in other terms used herein.
+        Micronaut and the associated logo are trademarks or registered trademarks of Object Computing, Inc.
+    </p>
+</div>
+
+<script type="text/javascript">
+function toggleText(input_id)  {
+    console.log(input_id);
+    var input = document.getElementById(input_id);
+    var textField = document.getElementById("technology-text-field").firstChild;
+    textField.data = input.value;
+}
+</script>
