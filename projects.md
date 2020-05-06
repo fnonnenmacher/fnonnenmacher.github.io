@@ -9,4 +9,4 @@ we had to work on small projects instead of writing an exam. Even when this norm
 preparing an exam, I am a big fan of this approach. When I actively apply concepts I learn it in more depth and can
 remember it for longer.
 
-Those projects were so valuable for me, that I decided it’s worth to present them here.
+Many projects were very valuable for me, so that it is worth to present them here.

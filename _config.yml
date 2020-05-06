@@ -16,6 +16,7 @@ permalink: /projects/:title/
 texture:
   title: Fabian Nonnenmacher
   tagline: Software Developer Enthusiast
+  analytics_id: 'A-165703985-1'
   date_format: "%b %-d, %Y"
   style: black
   showNav: true
