@@ -1,22 +1,32 @@
 <div class="technology-container">
     <div class="technology-box">
         <input id="java" type="image" alt="Java" onClick="toggleText(this.id)"
-               value="While working at Bosch Software Innovations.."
+               value="During my job as Software Developer we mainly used Java 8 for developing our system.
+               Thanks to the Code Reviews and feedback of my senior colleagues I quickly could improve my programming
+               skills and could  adapt many best practices (e.g. from Effective Java and Clean Code)."
                src="/assets/images/technologies/java.png"/>
     </div>
     <div class="technology-box">
         <input id="groovy" type="image" alt="Groovy" onClick="toggleText(this.id)"
-               value="Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... Context within I have used Groovy... "
+               value="I like Groovy as a light-weight alternative to Java. I often use it for prototyping and to write
+               short scripts. During my job we used Groovy with Spock to write end-to-end tests for our micro
+               services and to write Gradle scripts and plugins for our Continuous Delivery pipeline."
         src="/assets/images/technologies/groovy.png"/>
     </div>
     <div class="technology-box">
         <input id="scala" type="image" alt="Scala" onClick="toggleText(this.id)"
-               value="Context within I have used Scala..."
+               value="I learned Scala 3 years ago based on a <a href=https://www.coursera.org/specializations/scala> coursera class </a>.
+               This class not only helped my to learn Scala, but also helped me to think in a more functional way which was also helpful for writing cleaner Java code.
+               During my Master's thesis, I extend Spark with new functionality and are therefor reading and writing Scala."
                src="/assets/images/technologies/scala.png"/>
     </div>
     <div class="technology-box">
         <input id="kotlin" type="image" alt="Kotlin" onClick="toggleText(this.id)"
-               value="Context within I have used Kotlin..."
+               value="I learned Kotlin last semester with a <a href=https://www.coursera.org/learn/kotlin-for-java-developers>
+               coursera class</a> provided by JetBrains. Because I knew already Java, Groovy and Scala
+               I could pick up the concepts easily. For me Kotlin is the perfect alternative to Java,
+               because it is compatible with most libraries and allows to write very concise code.
+               So far I have not used it for bigger projects, only for small university assignments."
                src="/assets/images/technologies/kotlin.png"/>
     </div>
     <div class="technology-box">
@@ -91,7 +101,7 @@
 function toggleText(input_id)  {
     console.log(input_id);
     var input = document.getElementById(input_id);
-    var textField = document.getElementById("technology-text-field").firstChild;
-    textField.data = input.value;
+    var textField = document.getElementById("technology-text-field");
+    textField.innerHTML = input.value;
 }
 </script>
