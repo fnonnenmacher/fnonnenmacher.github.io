@@ -11,5 +11,15 @@
 		{%- if site.texture.social_links.twitter -%}
 			<a href="https://twitter.com/{{ site.texture.social_links.twitter }}"><li><i class="icon-twitter-squared"></i></li></a>
 		{%- endif -%}
+		<a onclick="mailAlert()"><li><i class="icon-mail-squared"></i></li></a>
 	</ul>
 </div>
+<script type="text/javascript">
+	function mailAlert() {
+		var part1 = "fabian.nonnenmacher";
+		var part2 = Math.pow(2,6);
+		var part4 = "gmx.de"
+		var part5 = part1 + String.fromCharCode(part2) + part4;
+		alert("Please contact me on: " + part5);
+	}
+</script>
