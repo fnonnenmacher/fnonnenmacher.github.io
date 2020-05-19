@@ -63,17 +63,26 @@
                I think writing good, maintainable tests on the right abstraction level is one of the hardest tasks. Obviously,
                for Java JUnit is the default framework and it's hard to imagine to write tests without it. I often used it
                in combination with Mockito and AssertJ. Whenever possible I try to follow <i>Test Driven Development</i>
-               principles for writign software."
+               principles for writing software."
                src="/assets/images/technologies/junit.png"/>
     </div>
     <div class="technology-box">
         <input id="gradle" type="image" alt="Gradle" onClick="toggleText(this.id)"
-               value="WORK IN PROGRESS: Context within I have used Gradle still missing."
+               value="When setting up the project within Bosch we decided to use Gradle as our build management tool instead of Maven.
+                Especially the extendability of the build scripts was very beneficial for us. Instead of writing shells
+                scripts on our CI server we added custom gradle tasks to our build. This had the advantage, that we could easily
+                execute all CI steps on our local machines for e.g. debugging. After the number of microservices increased, we
+                moved a lot of this functionality to custom plugins to be able to share it between multiple projects. After a while
+                I became the main responsible for those plugins."
                src="/assets/images/technologies/gradle.png"/>
     </div>
     <div class="technology-box">
         <input id="jenkins" type="image" alt="Jenkins" onClick="toggleText(this.id)"
-               value="WORK IN PROGRESS: Context within I have used Jenkins still missing."
+               value="In the project I worked, I participated in setting up the jenkins server. We used jenkins for implementing
+               a Continuous Delivery pipeline. On every push to the master branch, we executed the Gradle build with unit tests,
+               end-to-end tests of an individual microservice, different Open-Source and dependency checks, the system tests and
+               finally the deployment to our cloud environment. Because of the multiple microservices, we wanted to avoid defining
+               jobs manually and used therefore the Jenkins Job DSL plugin and later with Jenkins 2 the Jenkinsfile approach."
                src="/assets/images/technologies/jenkins.png"/>
     </div>
     <div class="technology-box">
