@@ -2,7 +2,7 @@ title: Fabian Nonnenmacher
 author: Fabian Nonnenmacher
 email: your-email@domain.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  Fabian Nonnenmacher's page. I am a software developer excited about learning new stuff. I mainly work
+  I am a software developer excited about learning new stuff. I mainly work
   within the JVM ecosystem and are interested in modern software development and cloud applications.
 show_excerpts: true # set to true to show excerpts on the homepage
 #baseurl:
