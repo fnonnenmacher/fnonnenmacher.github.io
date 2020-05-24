@@ -4,6 +4,8 @@ layout: page
 
 # About Me
 
+![](/assets/images/picture.jpeg){: .float-left-image }
+
 Hi, I am Fabian Nonnenmacher, 26 years old and from Germany. After my first job, I decided to do a European Master's program with a specialization on _Cloud Computing_ to expand my knowledge and to grow personally. I will graduate in summer and are therefore searching for a new job as a software developer (or consultant) from September onwards especially focusing on designing and developing distributed cloud-based applications. 
 
 I am especially interested in modern software development and architecture. On the one hand, I am fascinated by modern technologies and tools which support us to develop better software. On the other hand, I am convinced that the organizational and business aspects are at least as important as the technologies we are using. Only in encouraging environments with a mindset focused on the business value, we can deliver good software and create a benefit for our customers and users.

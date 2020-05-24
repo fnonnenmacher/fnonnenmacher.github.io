@@ -152,11 +152,27 @@ footer{
 	}
 }
 
-.center-image
-{
+.center-image {
 	margin: 0 auto;
 	display: block;
-	width: 80%
+	width: 80%;
+}
+
+@media screen and  (max-width: $mobileWidth) {
+	.float-left-image {
+		margin: 0 auto;
+		display: block;
+		width: 60%;
+	}
+}
+
+//
+@media screen and  (min-width: $mobileWidth) {
+	.float-left-image {
+		width: 40%;
+		float: left;
+		margin-right: 20px;
+	}
 }
 
 .clearfix {
