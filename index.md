@@ -1,5 +1,6 @@
 ---
 layout: page
+image: /assets/images/about-me-preview.jpeg
 ---
 
 # About Me
