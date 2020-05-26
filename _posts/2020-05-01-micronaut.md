@@ -21,7 +21,7 @@ I like especially [the blogpost](https://desosa.nl/projects/micronaut/2020/03/17
 
 For the [last blog post](https://desosa.nl/projects/micronaut/2020/04/09/microservices-in-detail.html), we changed our perspective and verified Micronaut's promise to be an ideal microservice framework. We used Eberhard Wolff's book [_Microservices: Flexible Software Architecture_](https://www.oreilly.com/library/view/microservices-flexible-software/9780134650449/) as a basis and showed which solutions Micronaut provides for microservice related challenges.
 
-During the class, we were encouraged to participate in the open-source development of our chosen project. From the knowledge I gained through the analysis I was able to provide two contributions:
+During the class, we were encouraged to participate in the open-source development of our chosen project. From the knowledge I gained, I was able to provide two contributions:
 
 * [Property loader for cloudfoundry environment variables](https://github.com/micronaut-projects/micronaut-core/pull/2928)
 * [Configuration of Consul related metadata](https://github.com/micronaut-projects/micronaut-core/pull/3038)
