@@ -11,7 +11,7 @@
                value="I like Groovy as a light-weight alternative to Java. I often use it for prototyping and to write
                short scripts. During my job we used Groovy with Spock to write end-to-end tests for our microservices
                and to write Gradle scripts and plugins for our <i>Continuous Delivery</i> pipeline."
-        src="/assets/images/technologies/groovy.png"/>
+               src="/assets/images/technologies/groovy.png"/>
     </div>
     <div class="technology-box">
         <input id="scala" type="image" alt="Scala" onClick="toggleText(this.id)"
@@ -33,7 +33,10 @@
     </div>
     <div class="technology-box">
         <input id="spring-boot" type="image" alt="Spring Boot" onClick="toggleText(this.id)"
-               value="WORK IN PROGRESS: Context within I have used Spring Boot still missing."
+               value="While working as Java developer, Spring Boot was the base framework for all our mircoservices. To
+               profit the most we used many libraries from the Spring ecosystem. We used Spring Cloud to connect with Cloudfoundry,
+               Spring Security to provide authentication based on the Bosch wide Identity Management, Spring Data for abstracting the
+               databases and Spring Cloud Stream to connect with the RabbitMQ messaging system."
                src="/assets/images/technologies/spring-boot.png"/>
     </div>
     <div class="technology-box">
@@ -54,7 +57,9 @@
     </div>
     <div class="technology-box">
         <input id="mongodb" type="image" alt="MongoDB" onClick="toggleText(this.id)"
-               value="WORK IN PROGRESS: Context within I have used MongoDB still missing."
+               value="Besides MySQL, MongoDB was the other DB technology which I have used during my Job. Especially for
+                storing massive amount of gathered vehicle data we preferred a NoSQL database. This DB was operated by
+                the infrastructure team and we accessed it with Spring Data."
                src="/assets/images/technologies/mongodb.png"/>
     </div>
     <div class="technology-box">
@@ -96,7 +101,10 @@
     </div>
     <div class="technology-box">
         <input id="spark" type="image" alt="Spark" onClick="toggleText(this.id)"
-               value="WORK IN PROGRESS: Context within I have used Spark still missing."
+               value="In the class <i>Supercomputing for Big Data</i> at TU Delft I studied big data concepts. In different projects
+               we developed Spark Queries and evaluated their performance on 20 node clusters on AWS. Now in my
+               <a href=/projects/micronaut> Master's thesis </a>
+               I go far behind this. I analyze the internals and implement alternative execution paths."
                src="/assets/images/technologies/spark.png"/>
     </div>
     <div class="technology-box">
@@ -114,23 +122,29 @@
 </div>
 <div class="technology-trademarks">
     <p>Java™ and the associated logo are registered trademarks of Oracle and/or its affiliates.
-        Groovy™, Apache Spark™, Spark™ and the associated logos are either registered trademarks or trademarks of The Apache Software Foundation in the
-        United States and other countries. Kotlin™ and the associated logos are registered trademarks of the Kotlin Foundation.
-        Spring, Spring Boot, RABBITMQ® and the associated logos are trademarks of Pivotal Software, Inc. in the U.S. and other countries.
-        CLOUD FOUNDRY and the associated logo are trademarks of the CloudFoundry.org Foundation in the United States and other countries.
+        Groovy™, Apache Spark™, Spark™ and the associated logos are either registered trademarks or trademarks of The
+        Apache Software Foundation in the
+        United States and other countries. Kotlin™ and the associated logos are registered trademarks of the Kotlin
+        Foundation.
+        Spring, Spring Boot, RABBITMQ® and the associated logos are trademarks of Pivotal Software, Inc. in the U.S. and
+        other countries.
+        CLOUD FOUNDRY and the associated logo are trademarks of the CloudFoundry.org Foundation in the United States and
+        other countries.
         MongoDB® and the associated logo are trademarks of MongoDB, Inc. in the United States and other countries.
-        Gradle and the Gradlephant logo are registered trademark of Gradle, Inc. and its subsidiaries in the United States and/or other countries.
+        Gradle and the Gradlephant logo are registered trademark of Gradle, Inc. and its subsidiaries in the United
+        States and/or other countries.
         Jenkins® is a registered trademark of Software in the Public Interest, Inc.
-        Docker™ and the Docker logo are trademarks or registered trademarks of Docker, Inc. in the United States and/or other countries. Docker, Inc. and other parties may also have trademark rights in other terms used herein.
+        Docker™ and the Docker logo are trademarks or registered trademarks of Docker, Inc. in the United States and/or
+        other countries. Docker, Inc. and other parties may also have trademark rights in other terms used herein.
         Micronaut and the associated logo are trademarks or registered trademarks of Object Computing, Inc.
     </p>
 </div>
 
 <script type="text/javascript">
-function toggleText(input_id)  {
-    console.log(input_id);
-    var input = document.getElementById(input_id);
-    var textField = document.getElementById("technology-text-field");
-    textField.innerHTML = input.value;
-}
+    function toggleText(input_id) {
+        console.log(input_id);
+        var input = document.getElementById(input_id);
+        var textField = document.getElementById("technology-text-field");
+        textField.innerHTML = input.value;
+    }
 </script>
