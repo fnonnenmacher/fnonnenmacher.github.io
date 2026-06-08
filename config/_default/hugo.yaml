@@ -12,6 +12,10 @@ enableEmoji: true
 # This configuration affects functions such as recent articles on the homepage, search index, and archive pages
 mainSections: ["blog"] # Multiple values can be configured, e.g. ["posts", "blog", "articles"]
 
+caches:
+  images:
+    dir: :cacheDir/images
+
 permalinks:
   blog: /blog/:slug/
   projects: /projects/:slug/
