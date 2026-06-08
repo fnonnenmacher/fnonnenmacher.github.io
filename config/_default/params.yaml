@@ -96,7 +96,7 @@ themes:
 
 # Home page configuration
 home:
-  recentPostsCount: 5 # Number of recent posts to show on the home page
+  recentPostsCount: 3 # Number of recent posts to show on the home page
 
   # Content order configuration - customize the order of home page sections
   # Available sections: author-section, recent-posts, featured-projects, page-content
@@ -104,7 +104,7 @@ home:
   contentOrder:
     - author-section
     - page-content
-    - recent-posts
+    - recent-content
     - featured-projects.html
 
 # Post configuration

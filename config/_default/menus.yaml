@@ -4,21 +4,22 @@ main:
     weight: 10
     params:
       icon: posts
-  - name: Book
-    url: https://learning.oreilly.com/library/view/building-ai-agent/0642572243906/
-    weight: 20
-    params:
-      icon: book
   - name: About Me
     pageRef: /about
-    weight: 30
+    weight: 20
     params:
       icon: about
-  - name: CV
-    pageRef: /resume
-    weight: 40
+  - name: Book
+    url: https://learning.oreilly.com/library/view/building-ai-agent/0642572243906/
+    weight: 30
     params:
-      icon: file-text
+      icon: book
+
+  # - name: CV
+  #   pageRef: /resume
+  #   weight: 40
+  #   params:
+  #     icon: file-text
 
   # - name: Archives
   #   pageRef: /archives

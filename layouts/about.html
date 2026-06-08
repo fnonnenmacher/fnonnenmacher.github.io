@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{- $avatar := .Params.avatar | default (site.Params.author.avatar | default "") -}}
+
+<header class="mb-6">
+  <h1 class="text-foreground text-3xl font-bold md:text-4xl">{{ .Title }}</h1>
+</header>
+
+<div class="bg-card border-border mb-8 overflow-hidden rounded-xl border p-6 shadow-sm">
+  {{- if $avatar }}
+  <img
+    src="{{ $avatar }}"
+    alt="{{ site.Params.author.name | default .Title }}"
+    class="rounded-xl object-cover shadow-md"
+    style="float:right; width:8rem; height:8rem; margin-left:1.5rem; margin-bottom:1rem;"
+  />
+  {{- end }}
+  <div class="prose prose-neutral dark:prose-invert max-w-none">
+    {{ .Content }}
+  </div>
+</div>
+
+{{ $links := .Params.links }}
+{{ if $links }}
+<div class="mt-6">
+  <div class="link-card-group">
+    {{ range $links }}
+    {{ partial "content/link.html" (dict "title" .name "description" .description "url" .url "icon" .icon) }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+{{ partial "features/comments.html" . }}
+{{ end }}

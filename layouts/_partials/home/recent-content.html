@@ -1,0 +1,43 @@
+{{/* Combined recent posts + external links, top N by date */}} {{- $count :=
+.Site.Params.home.recentPostsCount | default 3 -}} {{- $mainSections :=
+.Site.MainSections | default (slice "blog") -}} {{- $posts := where
+.Site.RegularPages "Section" (index $mainSections 0) -}} {{- $links := where
+.Site.RegularPages "Section" "links" -}} {{- $combined := $posts | append $links
+-}} {{- $combined = sort $combined "Date" "desc" -}} {{- $recent := first $count
+$combined -}} {{- $viewAllUrl := printf "/%s/" (index $mainSections 0) |
+relLangURL -}} {{- if $recent -}}
+<section class="recent-content mb-12">
+    <div class="mb-6 flex items-center justify-between">
+        <h2 class="text-foreground text-2xl font-bold">
+            {{ T "home.recentPosts" | default "Recent" }}
+        </h2>
+        <a
+            href="{{ $viewAllUrl }}"
+            class="text-primary hover:text-primary/80 flex items-center gap-1 text-sm font-medium transition-colors"
+        >
+            <span>{{ T "home.viewAll" | default "View all" }}</span>
+            {{ partial "features/icon.html" (dict "name" "arrow-right" "size"
+            "sm" "ariaLabel" "") }}
+        </a>
+    </div>
+
+    <div class="space-y-4">
+        {{- range $recent -}} {{- if .Params.external_url -}} {{ partial
+        "content/link-card.html" (dict "page" .) }} {{- else -}} {{ partial
+        "content/card-base.html" (dict "page" .) }} {{- end -}} {{- end -}}
+    </div>
+
+    <div class="mt-8 mb-6 text-center">
+        <a
+            href="{{ $viewAllUrl }}"
+            class="bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-primary/20 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-medium shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg focus:ring-2 focus:outline-none active:scale-95"
+        >
+            {{ partial "features/icon.html" (dict "name" "posts" "size" "md"
+            "ariaLabel" (T "home.viewAll")) }}
+            <span>{{ T "home.viewAll" | default "View all" }}</span>
+            {{ partial "features/icon.html" (dict "name" "arrow-right" "size"
+            "sm" "ariaLabel" "") }}
+        </a>
+    </div>
+</section>
+{{- end -}}

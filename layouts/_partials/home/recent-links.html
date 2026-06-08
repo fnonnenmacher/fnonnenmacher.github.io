@@ -1,0 +1,27 @@
+{{/* Recent external links section for the home page */}}
+
+{{- $count := .Site.Params.home.recentLinksCount | default 3 -}}
+{{- $links := where .Site.RegularPages "Section" "links" | first $count -}}
+
+{{- if $links -}}
+  <section class="recent-links mb-12">
+    <div class="mb-6 flex items-center justify-between">
+      <h2 class="text-foreground text-2xl font-bold">
+        {{- T "home.recentLinks" | default "Recent Links" -}}
+      </h2>
+      <a
+        href="{{ `/links/` | relLangURL }}"
+        class="text-primary hover:text-primary/80 flex items-center gap-1 text-sm font-medium transition-colors"
+      >
+        <span>{{ T "home.viewAll" | default "View all" }}</span>
+        {{ partial "features/icon.html" (dict "name" "arrow-right" "size" "sm" "ariaLabel" "") }}
+      </a>
+    </div>
+
+    <div class="space-y-4">
+      {{- range $links -}}
+        {{ partial "content/link-card.html" (dict "page" .) }}
+      {{- end -}}
+    </div>
+  </section>
+{{- end -}}

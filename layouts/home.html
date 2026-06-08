@@ -1,0 +1,13 @@
+{{ define "main" }}
+  {{/* Default section order — add "recent-links" after recent posts.
+       Override via site.Params.home.contentOrder in hugo.yaml */}}
+  {{ $contentOrder := site.Params.home.contentOrder }}
+  {{ if not $contentOrder }}
+    {{ $contentOrder = slice "author-section" "page-content" "recent-posts" "recent-links" }}
+  {{ end }}
+  {{ range $contentOrder }}
+    {{ $sectionName := . }}
+    {{ $partialPath := printf "home/%s.html" $sectionName }}
+    {{ partial $partialPath $ }}
+  {{ end }}
+{{ end }}

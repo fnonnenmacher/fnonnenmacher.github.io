@@ -1,7 +1,7 @@
 ---
 title: "Image Gallery"
-date: 2024-01-16T22:30:00+08:00
-draft: false
+date: 2024-01-01
+draft: true
 description: "Image Gallery includes justified layout gallery with markdown and masonry gallery with shortcodes."
 tags: ["gallery"]
 categories: ["gallery"]

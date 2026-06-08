@@ -1,0 +1,145 @@
+{{ define "main" }}
+  {{- $url := .Params.external_url | default "" -}}
+  {{- $linkType := .Params.link_type | default "" -}}
+
+  {{/* Auto-detect type from URL */}}
+  {{- if and (not $linkType) $url -}}
+    {{- if or (in $url "youtube.com") (in $url "youtu.be") -}}
+      {{- $linkType = "youtube" -}}
+    {{- else if or (in $url "spotify.com/episode") (in $url "podcasts.apple.com") (in $url "anchor.fm") (in $url "buzzsprout.com") (in $url "soundcloud.com") (in $url "overcast.fm") -}}
+      {{- $linkType = "podcast" -}}
+    {{- else if or (in $url "vimeo.com") (in $url "twitch.tv") -}}
+      {{- $linkType = "video" -}}
+    {{- else -}}
+      {{- $linkType = "link" -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{/* Auto-detect YouTube thumbnail */}}
+  {{- $thumbnail := .Params.image | default "" -}}
+  {{- if and (not $thumbnail) (eq $linkType "youtube") -}}
+    {{- $videoId := "" -}}
+    {{- if in $url "youtube.com" -}}
+      {{- $parts := split $url "v=" -}}
+      {{- if gt (len $parts) 1 -}}
+        {{- $videoId = index (split (index $parts 1) "&") 0 -}}
+      {{- end -}}
+    {{- else if in $url "youtu.be/" -}}
+      {{- $parts := split $url "youtu.be/" -}}
+      {{- if gt (len $parts) 1 -}}
+        {{- $videoId = index (split (index $parts 1) "?") 0 -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if $videoId -}}
+      {{- $thumbnail = printf "https://img.youtube.com/vi/%s/hqdefault.jpg" $videoId -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{/* Type label & icon */}}
+  {{- $typeLabel := "Link" -}}
+  {{- $typeIcon  := "external-link" -}}
+  {{- $badgeClass := "bg-muted/60 text-muted-foreground" -}}
+  {{- if eq $linkType "youtube" -}}
+    {{- $typeLabel  = "YouTube" -}}
+    {{- $typeIcon   = "youtube" -}}
+    {{- $badgeClass = "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400" -}}
+  {{- else if eq $linkType "podcast" -}}
+    {{- $typeLabel  = "Podcast" -}}
+    {{- $typeIcon   = "podcast" -}}
+    {{- $badgeClass = "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400" -}}
+  {{- else if eq $linkType "video" -}}
+    {{- $typeLabel  = "Video" -}}
+    {{- $typeIcon   = "monitor" -}}
+    {{- $badgeClass = "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400" -}}
+  {{- else if eq $linkType "article" -}}
+    {{- $typeLabel  = "Article" -}}
+    {{- $typeIcon   = "file-text" -}}
+    {{- $badgeClass = "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400" -}}
+  {{- end -}}
+
+  <article class="px-4 py-6">
+    <!-- Thumbnail -->
+    {{- if $thumbnail -}}
+      <div class="group mb-8 overflow-hidden rounded-2xl">
+        {{- if $url -}}
+          <a href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+        {{- end -}}
+        <img
+          src="{{ $thumbnail }}"
+          alt="{{ .Title }}"
+          class="aspect-video max-h-[50vh] w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="eager"
+        />
+        {{- if and $url (or (eq $linkType "youtube") (eq $linkType "video")) -}}
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-black/50 shadow-lg backdrop-blur-sm">
+              <svg class="h-7 w-7 translate-x-0.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+        {{- end -}}
+        {{- if $url -}}
+          </a>
+        {{- end -}}
+      </div>
+    {{- end -}}
+
+    <!-- Header -->
+    <header class="mb-8">
+      <!-- Type badge -->
+      <div class="mb-4">
+        <span class="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-sm font-semibold {{ $badgeClass }}">
+          {{ partial "features/icon.html" (dict "name" $typeIcon "size" "sm" "ariaLabel" "") }}
+          {{ $typeLabel }}
+        </span>
+      </div>
+
+      <h1 class="text-foreground mb-4 text-3xl font-bold md:text-4xl">
+        {{ .Title }}
+      </h1>
+
+      {{- if .Date -}}
+        <div class="text-muted-foreground flex items-center gap-2 text-sm">
+          {{ partial "features/icon.html" (dict "name" "calendar" "size" "sm" "ariaLabel" "") }}
+          <time datetime="{{ .Date.Format `2006-01-02` }}">
+            {{ partial "helpers/date.html" (dict "date" .Date "variant" "long") }}
+          </time>
+        </div>
+      {{- end -}}
+    </header>
+
+    <!-- Description / body -->
+    {{- if .Content -}}
+      <div class="prose prose-neutral dark:prose-invert mb-8 max-w-none">
+        {{ .Content }}
+      </div>
+    {{- else if .Params.description -}}
+      <p class="text-muted-foreground mb-8 text-lg leading-relaxed">
+        {{ .Params.description }}
+      </p>
+    {{- end -}}
+
+    <!-- Visit button -->
+    {{- if $url -}}
+      <div class="mb-12">
+        <a
+          href="{{ $url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-primary/20 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-medium shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg focus:ring-2 focus:outline-none active:scale-95"
+        >
+          {{ partial "features/icon.html" (dict "name" $typeIcon "size" "md" "ariaLabel" "") }}
+          <span>
+            {{- if eq $linkType "youtube" -}}Watch on YouTube
+            {{- else if eq $linkType "podcast" -}}Listen to Podcast
+            {{- else if eq $linkType "video" -}}Watch Video
+            {{- else -}}Visit Link
+            {{- end -}}
+          </span>
+          {{ partial "features/icon.html" (dict "name" "external-link" "size" "sm" "ariaLabel" "Opens in new tab") }}
+        </a>
+      </div>
+    {{- end -}}
+  </article>
+{{ end }}

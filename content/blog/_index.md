@@ -1,4 +1,4 @@
 ---
-title: "Fabian's Blog"
-description: "Here are all published articles, sorted by date in descending order."
+title: "Writing & Links"
+description: "Posts I've written and other content I’ve contributed to."
 ---
