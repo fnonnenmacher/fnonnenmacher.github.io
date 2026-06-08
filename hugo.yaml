@@ -1,0 +1,10 @@
+baseURL: nonnenmacher.dev
+locale: en-us
+title: Fabian Nonnenmacher
+
+module:
+  hugoVersion:
+    extended: true
+    min: 0.158.0
+  imports:
+    - path: github.com/tom2almighty/hugo-narrow

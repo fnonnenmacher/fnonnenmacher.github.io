@@ -1,0 +1,105 @@
+main:
+  - name: Blog
+    pageRef: /blog
+    weight: 10
+    params:
+      icon: posts
+  - name: Book
+    url: https://learning.oreilly.com/library/view/building-ai-agent/0642572243906/
+    weight: 20
+    params:
+      icon: book
+  - name: About Me
+    pageRef: /about
+    weight: 30
+    params:
+      icon: about
+  - name: CV
+    pageRef: /resume
+    weight: 40
+    params:
+      icon: file-text
+
+  # - name: Archives
+  #   pageRef: /archives
+  #   weight: 30
+  #   params:
+  #     icon: archive
+
+  # Example: parent item with dropdown submenu children
+  # - name: More
+  #   weight: 30
+  #   params:
+  #     icon: layers
+
+  # - name: Categories
+  #   weight: 1
+  #   pageRef: /categories
+  #   parent: More
+  #   params:
+  #     icon: categories
+
+  # - name: Tags
+  #   weight: 2
+  #   pageRef: /tags
+  #   parent: More
+  #   params:
+  #     icon: tags
+
+  # - name: Series
+  #   weight: 3
+  #   pageRef: /series
+  #   parent: More
+  #   params:
+  #     icon: bookmark
+
+  # - name: Projects
+  #   weight: 4
+  #   pageRef: /projects
+  #   parent: More
+  #   params:
+  #     icon: projects
+
+# footer menu
+# footer:
+#   - name: Timeline
+#     pageRef: /timeline
+#     weight: 10
+#     params:
+#       icon: chart
+
+#   - name: About
+#     pageRef: /about
+#     weight: 20
+#     params:
+#       icon: about
+
+#   - name: Resume
+#     pageRef: /resume
+#     weight: 25
+#     params:
+#       icon: file-text
+
+#   - name: RSS Feed
+#     url: /index.xml
+#     weight: 30
+#     params:
+#       icon: rss
+
+# footer social link
+social:
+  - name: Book
+    url: https://learning.oreilly.com/library/view/building-ai-agent/0642572243906/
+    weight: 10
+    params:
+      icon: book
+  - name: GitHub
+    url: https://github.com/fnonnenmacher
+    weight: 10
+    params:
+      icon: github
+  - name: LinkedIn
+    url: https://linkedin.com/in/fnonnenmacher
+    weight: 20
+    params:
+      icon: linkedin
