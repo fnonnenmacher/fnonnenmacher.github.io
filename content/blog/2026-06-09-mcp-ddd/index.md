@@ -5,6 +5,7 @@ date: 2026-06-08T22:00:00+02:00
 description: "MCP is marketed as the USB-C of AI integrations — but plugging raw upstream schemas directly into an agent's context window is a textbook DDD anti-pattern. Here's why, and what to do instead."
 tags: ["ai", "mcp", "ddd", "agents", "architecture", "platform-engineering"]
 categories: ["engineering"]
+cover: cover.png
 ---
 
 You have likely heard the narrative that the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) is the "USB-C port" for integrating external systems with AI applications. It's a compelling metaphor, but it has led many to view MCP as a universal adapter for all AI architecture; resulting in [widespread overuse](https://www.thoughtworks.com/en-de/radar/techniques/summary/mcp-by-default).
@@ -110,3 +111,8 @@ However, things change dramatically with scale.
 Whether "scale" means you are personally running your local workflows a hundred times a day, or rolling an autonomous agent out to thousands of enterprise users, flexibility eventually stops being your primary goal. Reliability becomes your bottleneck.
 
 At that tipping point, your priority must shift from flexibility to reliability. You need to explicitly design, guardrail, and version your agent's interfaces just as rigorously as you would any public-facing enterprise API. When you reach that stage, it's time to unplug the universal USB-C cables, stop treating raw prompts like network adapters, and build a robust, code-enforced anti corruption layer that treats agent interfaces as first-class architectural citizens.
+
+
+----
+### Acknowledgements
+Many thanks to [Moritz Wilke](https://www.linkedin.com/in/moritz-wilke-99945222b/) for his early feedback. His perspective has helped me shaping the narrative a lot.
