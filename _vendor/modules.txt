@@ -1,0 +1,1 @@
+# github.com/tom2almighty/hugo-narrow v1.3.12

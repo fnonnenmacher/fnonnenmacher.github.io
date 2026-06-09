@@ -6,6 +6,8 @@ description: "MCP is marketed as the USB-C of AI integrations — but plugging r
 tags: ["ai", "mcp", "ddd", "agents", "architecture", "platform-engineering"]
 categories: ["engineering"]
 cover: cover.png
+lightbox:
+  enabled: true
 ---
 
 You have likely heard the narrative that the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) is the "USB-C port" for integrating external systems with AI applications. It's a compelling metaphor, but it has led many to view MCP as a universal adapter for all AI architecture; resulting in [widespread overuse](https://www.thoughtworks.com/en-de/radar/techniques/summary/mcp-by-default).
@@ -28,7 +30,7 @@ In Domain-Driven Design, a large system is divided into **Bounded Contexts**. A 
 
 *"A Bounded Context delimits the applicability of a particular model so that team members have a clear and shared understanding of what must be consistent and how it relates to other contexts."* — [Eric Evans](https://learning.oreilly.com/library/view/domain-driven-design-tackling/0321125215/)
 
-{{< figure src="image01.excalidraw.svg" alt="Bounded Contexts diagram" caption="Two separate Bounded Contexts — your team's User Story model on the left, and the generic Jira Issue model on the right — each with its own Ubiquitous Language." >}}
+![Bounded Contexts diagram](image01.excalidraw.svg "Two separate Bounded Contexts — your team's User Story model on the left, and the generic Jira Issue model on the right — each with its own Ubiquitous Language.")
 
 
 Let's look back at the Jira example through this lens. Within your project, you might use Jira to track your work, but your team has a highly specific definition of what a user story actually is, focused entirely on shipping great software. Within your team, everyone shares the same understanding: your user stories are written to prove a certain business hypothesis, they follow a clear narrative structure, they specify acceptance criteria, and they must meet a team-wide Definition of Done.
@@ -44,7 +46,7 @@ To understand why this is dangerous, we need to look back at DDD's core integrat
 * **The Conformist Pattern:** The downstream system completely conforms to the upstream system's domain model. It accepts the upstream team's schema, vocabulary, and logic as-is, sacrificing its own model autonomy. If the upstream system changes, the downstream system breaks or is forced to change with it.
 * **The Anti-Corruption Layer (ACL):** A translating layer created between two contexts. The downstream system refuses to be polluted by the upstream model. Instead, the ACL translates data back and forth, ensuring both systems maintain their architectural integrity. Crucially, this decouples the downstream system, leaving it free to evolve its own internal language without being held hostage by upstream changes.
 
-{{< figure src="image02.excalidraw.svg" alt="Showing how an MCP server pollutes the bounded Context" caption="Integrating an upstream defined MCP Server, basically follows the conformist pattern and as such pollutes the agent's bounded context." >}}
+![Conformist vs Anti-Corruption Layer pattern](image02.excalidraw.svg "Integrating an upstream defined MCP Server basically follows the Conformist pattern and as such pollutes the agent's bounded context.")
 
 Plugging an off-the-shelf MCP server, with an upstream defined schema directly directly into an agent is a textbook example of the **Conformist pattern**. You are injecting an externally defined interface straight into the agent's system prompt – the absolute core of its Bounded Context.
 
@@ -82,7 +84,7 @@ This semantic mismatch is exactly where your architectural choices will either m
 
 Achieving this well-defined boundary is surprisingly simple. You don't need a heavy middleware architecture or a fragile, 4,000-token system prompt. Instead, you can build a highly effective Anti-Corruption Layer directly inside your application by building domain-specific tools, leveraging the native tool-calling capabilities of modern agent frameworks like [Pydantic AI](https://pydantic.dev/docs/ai/tools-toolsets/tools/).
 
-{{< figure src="image03.excalidraw.svg" alt="Domain-specific tools as ACL architecture" caption="Domain-specific tools act as the ACL: the agent works entirely within its own Ubiquitous Language, while application code handles translation to upstream systems." >}}
+![Domain-specific tools as ACL architecture](image03.excalidraw.svg "Domain-specific tools act as the ACL: the agent works entirely within its own Ubiquitous Language, while application code handles translation to upstream systems.")
 
 Instead of piping externally defined and uncurated tool definitions directly into the agent's context, you should define custom, tightly specified tools that match the Ubiquitous Language of your agent. The tool interface exposed to the LLM becomes a clean, unified gateway – such as a single `book_trip()` function – while traditional software engineering code underneath handles the dirty work of data transformation.
 
@@ -100,7 +102,7 @@ No, absolutely not. But as with any technology, there is no silver bullet. Softw
 
 First and foremost, MCP itself is not the issue. The issue is its overuse as an architectural shortcut to blindly inject upstream Bounded Contexts into your agent. In fact, you can use MCP to build the exact domain-specific tools we just discussed. In our Jira example, instead of exposing a raw, generic third-party server, you could build a custom internal MCP server to act as your ACL. This server would translate your team's specific definition of a User Story into Jira's schema behind the scenes, using the MCP protocol simply to expose that single, curated tool to your coding assistant.
 
-{{< figure src="image04.excalidraw.svg" alt="Custom MCP server acting as ACL" caption="A custom internal MCP server used as an ACL: instead of exposing raw third-party schemas, it surfaces a single curated tool in your team's language and handles all translation to the upstream Jira API behind the scenes." >}}
+![Custom MCP server acting as ACL](image04.excalidraw.svg "A custom internal MCP server used as an ACL: instead of exposing raw third-party schemas, it surfaces a single curated tool in your team's language and handles all translation to the upstream Jira API behind the scenes.")
 
 Additionally, even when designing systems from a Domain-Driven Design perspective, the Conformist pattern isn't an anti-pattern to be avoided at all costs. In fact, conforming can be the most pragmatic way to integrate two systems, especially when the upstream context is highly stable, universally understood, or when building a custom translation layer adds unnecessary overhead.
 
@@ -115,4 +117,4 @@ At that tipping point, your priority must shift from flexibility to reliability.
 
 ----
 ### Acknowledgements
-Many thanks to [Moritz Wilke](https://www.linkedin.com/in/moritz-wilke-99945222b/) for his early feedback. His perspective has helped me shaping the narrative a lot.
+Many thanks to [Moritz Wilke](https://www.linkedin.com/in/moritz-wilke-99945222b) for his early feedback. His perspective has helped me shaping the narrative a lot.
